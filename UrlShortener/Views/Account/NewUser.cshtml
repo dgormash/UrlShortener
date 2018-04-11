@@ -1,4 +1,4 @@
-﻿
+﻿@model UrlShortener.Models.User
 @{
     Layout = null;
 }
@@ -12,7 +12,13 @@
 </head>
 <body>
 <div>
-    <h1>New user</h1>
+    <h1>Регистрация нового пользователя</h1>
 </div>
+    @using (@Html.BeginForm("Register"))
+    {
+        @Html.EditorFor(model => model.UserName)
+        @Html.EditorFor(model => model.UserPassword)
+        <input type="submit" class="btn btn-primary" value="Создать"/>
+    }
 </body>
 </html>

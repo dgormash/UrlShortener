@@ -16,12 +16,25 @@ namespace UrlShortener.Controllers
             //2. Если есть, то перенаправить на главную страницу (UrlShortenerService)
             //3. Если нет, то выдать сообщение об ошибке и предложить зарегистрировать пользователя
             //4. Назначить токен
-            return View("UrlShortenerService");
+            var result = true;
+            if (result)
+            {
+                //Логика проверки валидности пользователя.
+                return RedirectToAction("Index", "MainActivity");
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public ActionResult Register()
         {
+            return View("NewUser");
+        }
+
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+
             return View("NewUser");
         }
     }
