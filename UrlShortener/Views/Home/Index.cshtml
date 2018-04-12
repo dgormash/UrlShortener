@@ -21,12 +21,20 @@
             @Html.EditorFor(model => model.UserName, new {place = "User name", @class = "form-control"})
         </div>
         <div>
-            @Html.EditorFor(model => model.UserPassword, new {placeholder = "Password", @class = "form-control"})
+            @Html.ValidationMessageFor(model =>model.UserName)
         </div>
         <div>
+            @Html.EditorFor(model => model.UserPassword, new {placeholder = "Password", @class = "form-control"})
+        </div>
+        <div>@Html.ValidationMessageFor(model => model.UserPassword)</div>
+        <div>
             <input type="submit" class="btn btn-primary" value="Войти"/>
+            <input type="reset" class="btn btn-primary" value="Очистить"/>
         </div>
     }
+    <div>
+        @Html.DisplayFor(model => model.LoginErrorMessage)
+    </div>
 
     <div>
         or @Html.ActionLink("register new user", "Register", "Account")

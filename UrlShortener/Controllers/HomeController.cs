@@ -9,12 +9,15 @@ namespace UrlShortener.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly User _user;
+        public HomeController()
+        {
+            _user = new User();
+        }
         // GET: Home
-        [HttpGet]
         public ActionResult Index()
         {
-            var user = new User();
-            return View(user);
+            return View(_user);
         }
     }
 }
